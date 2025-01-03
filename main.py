@@ -4,19 +4,19 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from ui import Ui_MainWindow
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 
-
+#створення віджета QMainWindow
 class Widget(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
+        #підключення відео файлу до календаря і запуск відео
         self.media = QMediaPlayer(self)
         self.media.setVideoOutput(self.ui.widget)
         vid = QMediaContent(QUrl.fromLocalFile("Video\\7.avi"))
         self.media.setMedia(vid)
         self.media.play()
-
+#
 if __name__=="__main__":
     app = QApplication(sys.argv)
     ex = Widget()
